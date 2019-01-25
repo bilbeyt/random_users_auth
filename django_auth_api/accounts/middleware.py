@@ -2,7 +2,7 @@ from accounts.models import CustomUser
 from rest_framework.exceptions import NotFound
 
 
-class APIRequestCheck:
+class APIRequestCheckMiddleware:
 
     def __init__(self, get_response):
         self.get_response = get_response

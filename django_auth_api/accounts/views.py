@@ -22,9 +22,8 @@ class CustomUserAPIView(APIView):
             raise ValueError("Invalid")
         serializer = CustomUserSerializer(data=request.data)
         if serializer.is_valid():
-            student = CustomUser(**serializer.data)
-            print(student)
-            CustomUser.objects.save_data(users=[student])
+            user = CustomUser(**serializer.data)
+            CustomUser.objects.save_data(users=[user])
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.errors, 
