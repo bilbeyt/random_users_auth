@@ -12,4 +12,4 @@ class APIRequestCheckMiddleware:
         if CustomUser.objects.filter(api_key=key).exists():
             return self.get_response(request)
         else:
-            return NotFound
+            raise NotFound
